@@ -10,10 +10,27 @@ django==5.2
     # via
     #   travel-recommendation (pyproject.toml)
     #   djangorestframework
+    #   djangorestframework-simplejwt
 djangorestframework==3.16.0
+    # via
+    #   travel-recommendation (pyproject.toml)
+    #   djangorestframework-simplejwt
+djangorestframework-simplejwt==5.5.0
     # via travel-recommendation (pyproject.toml)
 idna==3.10
     # via requests
+iniconfig==2.1.0
+    # via pytest
+packaging==24.2
+    # via pytest
+pluggy==1.5.0
+    # via pytest
+pyjwt==2.9.0
+    # via djangorestframework-simplejwt
+pytest==8.3.5
+    # via travel-recommendation (pyproject.toml)
+python-dotenv==1.1.0
+    # via travel-recommendation (pyproject.toml)
 requests==2.32.3
     # via travel-recommendation (pyproject.toml)
 ruff==0.11.4
