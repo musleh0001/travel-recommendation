@@ -8,7 +8,7 @@ from datetime import datetime, timedelta, timezone, date
 
 
 # Setup client
-cache_session = requests_cache.CachedSession(".cache", expire_after=-1)
+cache_session = requests_cache.CachedSession(".cache", expire_after=timedelta(minutes=55))
 retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
 om = openmeteo_requests.Client(session=retry_session)
 
