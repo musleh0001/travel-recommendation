@@ -50,6 +50,10 @@ polars==1.27.1
 pyjwt==2.9.0
     # via djangorestframework-simplejwt
 pytest==8.3.5
+    # via
+    #   travel-recommendation (pyproject.toml)
+    #   pytest-django
+pytest-django==4.11.1
     # via travel-recommendation (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pandas
