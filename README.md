@@ -46,6 +46,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+
+##### Run server
+```shell
+python manage.py runserver
+```
+
 ##### To add new libraries first update `pyproject.toml`.
 ```shell
 uv pip compile pyproject.toml -o requirements.txt
