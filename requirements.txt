@@ -2,6 +2,12 @@
 #    uv pip compile pyproject.toml -o requirements.txt
 asgiref==3.8.1
     # via django
+attrs==25.3.0
+    # via
+    #   cattrs
+    #   requests-cache
+cattrs==24.1.3
+    # via requests-cache
 certifi==2025.1.31
     # via requests
 charset-normalizer==3.4.1
@@ -17,25 +23,64 @@ djangorestframework==3.16.0
     #   djangorestframework-simplejwt
 djangorestframework-simplejwt==5.5.0
     # via travel-recommendation (pyproject.toml)
+flatbuffers==25.2.10
+    # via openmeteo-sdk
 idna==3.10
-    # via requests
+    # via
+    #   requests
+    #   url-normalize
 iniconfig==2.1.0
     # via pytest
+numpy==2.2.4
+    # via
+    #   travel-recommendation (pyproject.toml)
+    #   pandas
+openmeteo-requests==1.4.0
+    # via travel-recommendation (pyproject.toml)
+openmeteo-sdk==1.19.0
+    # via openmeteo-requests
 packaging==24.2
     # via pytest
+pandas==2.2.3
+    # via travel-recommendation (pyproject.toml)
+platformdirs==4.3.7
+    # via requests-cache
 pluggy==1.5.0
     # via pytest
+polars==1.27.1
+    # via travel-recommendation (pyproject.toml)
 pyjwt==2.9.0
     # via djangorestframework-simplejwt
 pytest==8.3.5
     # via travel-recommendation (pyproject.toml)
+python-dateutil==2.9.0.post0
+    # via pandas
 python-dotenv==1.1.0
     # via travel-recommendation (pyproject.toml)
+pytz==2025.2
+    # via pandas
 requests==2.32.3
+    # via
+    #   travel-recommendation (pyproject.toml)
+    #   openmeteo-requests
+    #   requests-cache
+    #   retry-requests
+requests-cache==1.2.1
+    # via travel-recommendation (pyproject.toml)
+retry-requests==2.0.0
     # via travel-recommendation (pyproject.toml)
 ruff==0.11.4
     # via travel-recommendation (pyproject.toml)
+six==1.17.0
+    # via python-dateutil
 sqlparse==0.5.3
     # via django
+tzdata==2025.2
+    # via pandas
+url-normalize==2.2.0
+    # via requests-cache
 urllib3==2.4.0
-    # via requests
+    # via
+    #   requests
+    #   requests-cache
+    #   retry-requests
