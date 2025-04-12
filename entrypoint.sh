@@ -11,6 +11,9 @@ fi
 echo "🚀 Applying migrations..."
 python manage.py migrate --noinput
 
+echo "Loading districts data"
+python manage.py load_districts_data
+
 
 echo "🔥 Starting server..."
 python manage.py runserver
