@@ -17,11 +17,15 @@ django==5.2
     #   travel-recommendation (pyproject.toml)
     #   djangorestframework
     #   djangorestframework-simplejwt
+    #   drf-yasg
 djangorestframework==3.16.0
     # via
     #   travel-recommendation (pyproject.toml)
     #   djangorestframework-simplejwt
+    #   drf-yasg
 djangorestframework-simplejwt==5.5.0
+    # via travel-recommendation (pyproject.toml)
+drf-yasg==1.21.10
     # via travel-recommendation (pyproject.toml)
 flatbuffers==25.2.10
     # via openmeteo-sdk
@@ -29,6 +33,8 @@ idna==3.10
     # via
     #   requests
     #   url-normalize
+inflection==0.5.1
+    # via drf-yasg
 iniconfig==2.1.0
     # via pytest
 numpy==2.2.4
@@ -38,7 +44,9 @@ openmeteo-requests==1.4.0
 openmeteo-sdk==1.19.0
     # via openmeteo-requests
 packaging==24.2
-    # via pytest
+    # via
+    #   drf-yasg
+    #   pytest
 pandas==2.2.3
     # via travel-recommendation (pyproject.toml)
 platformdirs==4.3.7
@@ -60,7 +68,11 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
     # via travel-recommendation (pyproject.toml)
 pytz==2025.2
-    # via pandas
+    # via
+    #   drf-yasg
+    #   pandas
+pyyaml==6.0.2
+    # via drf-yasg
 requests==2.32.3
     # via
     #   travel-recommendation (pyproject.toml)
@@ -79,6 +91,8 @@ sqlparse==0.5.3
     # via django
 tzdata==2025.2
     # via pandas
+uritemplate==4.1.1
+    # via drf-yasg
 url-normalize==2.2.0
     # via requests-cache
 urllib3==2.4.0
