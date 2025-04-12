@@ -32,9 +32,7 @@ idna==3.10
 iniconfig==2.1.0
     # via pytest
 numpy==2.2.4
-    # via
-    #   travel-recommendation (pyproject.toml)
-    #   pandas
+    # via pandas
 openmeteo-requests==1.4.0
     # via travel-recommendation (pyproject.toml)
 openmeteo-sdk==1.19.0

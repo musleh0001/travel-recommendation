@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import polars as pl
 import requests_cache
 import openmeteo_requests

@@ -2,7 +2,6 @@ import os
 import polars as pl
 import requests_cache
 import openmeteo_requests
-from zoneinfo import ZoneInfo
 from retry_requests import retry
 from openmeteo_sdk.Variable import Variable
 from datetime import datetime, timedelta, timezone
@@ -25,7 +24,6 @@ def fetch_weather_data(lat: float, long: float) -> pl.DataFrame:
     response = responses[0]
 
     hourly = response.Hourly()
-    hourly_time = range(hourly.Time(), hourly.TimeEnd(), hourly.Interval())
     hourly_variables = list(
         map(lambda i: hourly.Variables(i), range(0, hourly.VariablesLength()))
     )
@@ -61,7 +59,6 @@ def fetch_air_quality_data(lat: float, long: float) -> pl.DataFrame:
     response = responses[0]
 
     hourly = response.Hourly()
-    hourly_time = range(hourly.Time(), hourly.TimeEnd(), hourly.Interval())
     hourly_variables = list(
         map(lambda i: hourly.Variables(i), range(0, hourly.VariablesLength()))
     )
