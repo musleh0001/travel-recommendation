@@ -22,7 +22,8 @@
 2. cd travel-recommendation
 3. cp .env.example .env # update .env file
 4. Create and Activate virtual env
-5. bash entrypoint.sh
+5. Install requirements
+6. bash entrypoint.sh
 ```
 
 ### For API documentations visit: `http://localhost:8000/swagger/`
