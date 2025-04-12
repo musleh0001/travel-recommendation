@@ -45,19 +45,24 @@ class RecommendTravelView(APIView):
             current_lat = serializer.validated_data["latitude"]
             current_long = serializer.validated_data["longitude"]
             dest_dist = serializer.validated_data["destination_district"]
+            travel_date = serializer.validated_data["travel_date"]
 
             district = District.objects.filter(name__iexact=dest_dist)
             if district.exists():
                 district = district.first()
 
-                current_weather_df = utils.fetch_weather_data(current_lat, current_long)
+                current_weather_df = utils.fetch_weather_data(
+                    current_lat, current_long, travel_date
+                )
                 current_air_quality_df = utils.fetch_air_quality_data(
-                    current_lat, current_long
+                    current_lat, current_long, travel_date
                 )
 
-                dest_weather_df = utils.fetch_weather_data(district.lat, district.long)
+                dest_weather_df = utils.fetch_weather_data(
+                    district.lat, district.long, travel_date
+                )
                 dest_air_quality_df = utils.fetch_air_quality_data(
-                    district.lat, district.long
+                    district.lat, district.long, travel_date
                 )
 
                 curr_temp = current_weather_df[0, "avg_temperature"]

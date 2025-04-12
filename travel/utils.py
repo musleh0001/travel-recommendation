@@ -4,7 +4,7 @@ import requests_cache
 import openmeteo_requests
 from retry_requests import retry
 from openmeteo_sdk.Variable import Variable
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone, date
 
 
 # Setup client
@@ -13,13 +13,21 @@ retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
 om = openmeteo_requests.Client(session=retry_session)
 
 
-def fetch_weather_data(lat: float, long: float) -> pl.DataFrame:
+def fetch_weather_data(
+    lat: float, long: float, travel_date: date = None
+) -> pl.DataFrame:
     params = {
         "latitude": lat,
         "longitude": long,
         "hourly": "temperature_2m",
-        "forecast_days": 7,
     }
+
+    if travel_date:
+        params["start_date"] = travel_date
+        params["end_date"] = travel_date
+    else:
+        params["forecast_days"] = 7
+
     responses = om.weather_api(os.getenv("WEATHER_API"), params=params)
     response = responses[0]
 
@@ -53,8 +61,17 @@ def fetch_weather_data(lat: float, long: float) -> pl.DataFrame:
     return df
 
 
-def fetch_air_quality_data(lat: float, long: float) -> pl.DataFrame:
-    params = {"latitude": lat, "longitude": long, "hourly": "pm2_5", "forecast_days": 7}
+def fetch_air_quality_data(
+    lat: float, long: float, travel_date: date = None
+) -> pl.DataFrame:
+    params = {"latitude": lat, "longitude": long, "hourly": "pm2_5"}
+
+    if travel_date:
+        params["start_date"] = travel_date
+        params["end_date"] = travel_date
+    else:
+        params["forecast_days"] = 7
+
     responses = om.weather_api(os.getenv("AIR_QUALITY_API"), params=params)
     response = responses[0]
 
